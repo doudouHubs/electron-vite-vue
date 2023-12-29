@@ -7,6 +7,7 @@ export default {
     },
 
     openWindow() {
-        ipcRenderer.send('open-win', 'http s://www.baidu.com');
+        ipcRenderer.invoke('open-win', 'demo');
+        console.log('exposeInMainWorld', 'do-something');
     }
 }
