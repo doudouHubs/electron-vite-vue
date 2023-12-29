@@ -1,3 +1,6 @@
+import { contextBridge } from "electron"
+import Winative from "./Winative"
+
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise((resolve) => {
     if (condition.includes(document.readyState)) {
@@ -81,6 +84,7 @@ function useLoading() {
 }
 
 // ----------------------------------------------------------------------
+contextBridge.exposeInMainWorld("winative", Winative)
 
 const { appendLoading, removeLoading } = useLoading()
 domReady().then(appendLoading)

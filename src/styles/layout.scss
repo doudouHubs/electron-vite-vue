@@ -1,0 +1,301 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+[app-drag="true"] {
+    -webkit-app-region: drag;
+    pointer-events: none;
+
+    &:after {
+        content: ''
+    }
+}
+
+[app-drag="none"] {
+    -webkit-app-region: no-drag;
+    pointer-events: auto;
+}
+
+iframe {
+    @extend [app-drag="none"];
+}
+
+.list-none {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.text-ellipsis-two {
+    display: -webkit-box;
+    overflow: hidden;
+    /*! autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.over-hide {
+    overflow: hidden !important;
+}
+
+.dis-table {
+    display: table;
+
+    &.ver-mid {
+        .dis-tab-cell {
+            vertical-align: middle;
+        }
+    }
+
+    &.ver-top {
+        .dis-tab-cell {
+            vertical-align: top;
+        }
+    }
+
+    &.ver-bot {
+        .dis-tab-cell {
+            vertical-align: bottom;
+        }
+    }
+}
+
+.dis-inline {
+    display: inline-block;
+}
+
+.dis-block {
+    display: block;
+}
+
+.dis-none {
+    display: none;
+}
+
+// 垂直居中辅助
+.middle-helper {
+
+    >*,
+    &:before {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &:before {
+        width: 0;
+        height: 100%;
+        content: '';
+    }
+}
+
+// 居中
+.position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// 宽高100%
+.wh100 {
+    width: 100%;
+    height: 100%;
+}
+
+// padding margin置0
+.pm0 {
+    padding: 0;
+    margin: 0;
+}
+
+.ver-mid {
+    vertical-align: middle;
+}
+
+.ver-top {
+    vertical-align: top;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.dis-tab-header-group {
+    display: table-header-group;
+}
+
+.dis-tab-group {
+    display: table-row-group;
+}
+
+.dis-tab-row {
+    display: table-row;
+}
+
+.dis-tab-cell {
+    display: table-cell;
+}
+
+// 点击元素，添加点击透明效果
+.click-element {
+    cursor: pointer;
+
+    &:active {
+        opacity: .6;
+    }
+
+    &.active {
+        cursor: default;
+
+        &:active {
+            opacity: 1;
+        }
+    }
+}
+
+/* 禁止鼠标选中文本 */
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+/* 点击穿透 */
+.pointer-none {
+    pointer-events: none !important;
+}
+
+.pointer-auto {
+    pointer-events: auto !important;
+}
+
+.clearfix {
+
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.layout-line {
+    background-color: #ccc;
+    border: none;
+    height: 1px;
+}
+
+.el-popup-parent--hidden {
+    padding-right: 0 !important;
+}
+
+// 不显示触屏高亮
+.tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+}
+
+// 全尺寸，宽高100%
+.full-size {
+    width: 100%;
+    height: 100%;
+}
+
+// 文字垂直排列
+.vertical-text {
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+}
+
+// 不可点击样式
+.no-click {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+// css三角箭头
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+
+    &.caret-up {
+        content: "";
+        border-top: 0;
+        border-bottom: 4px dashed;
+        border-bottom: 4px solid\9;
+    }
+}
+
+// 数字输入框
+input[type=number] {
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    -moz-appearance: textfield;
+}
+
+// 取消抗锯齿
+.anti-aliasing-none {
+    image-rendering: optimizeSpeed; // Older versions of FF
+    image-rendering: -moz-crisp-edges; // FF 6.0+
+    image-rendering: -webkit-optimize-contrast; // Webkit (non standard naming)
+    image-rendering: -o-crisp-edges; // OS X & Windows Opera (12.02+)
+    image-rendering: crisp-edges; // Possible future browsers.
+    -ms-interpolation-mode: nearest-neighbor; // IE (non standard naming)
+}
